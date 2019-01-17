@@ -1,5 +1,6 @@
 'use strict';
 
+const util = require('util');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -45,12 +46,29 @@ users.statics.createFromOauth = function(email) {
 
 };
 
+users.statics.authenticateToken = function(token) {
+  console.log(`received token: ${token}`);
+  if (usedTokens.has(token)) {
+    console.log(`duplicate token detected`);
+    return null;
+  } else {
+    usedTokens.add(token);
+  }
+  let parsedToken = jwt.verify(token, process.env.SECRET);
+  let query = {_id: parsedToken.id};
+  return this.findOne(query);
+};
+
 users.statics.authenticateBasic = function(auth) {
   let query = {username:auth.username};
   return this.findOne(query)
     .then( user => user && user.comparePassword(auth.password) )
     .catch(error => {throw error;});
 };
+
+users.statics.setUsedToken = function(token) {
+  usedTokens.add(token);
+}
 
 users.methods.comparePassword = function(password) {
   return bcrypt.compare( password, this.password )
@@ -65,7 +83,7 @@ users.methods.generateToken = function(type) {
     type: type || 'user',
   };
   
-  return jwt.sign(token, SECRET);
+  return jwt.sign(token, SECRET, { expiresIn: 10 });
 };
 
 users.methods.generateKey = function() {

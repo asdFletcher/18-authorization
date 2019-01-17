@@ -32,4 +32,8 @@ authRouter.get('/oauth', (req,res,next) => {
     .catch(next);
 });
 
+authRouter.post('/testing', auth, (req, res, next) => {
+  res.status(200).send('ok 🍕');
+})
+
 module.exports = authRouter;
