@@ -1,12 +1,13 @@
 ![CF](http://i.imgur.com/7v5ASc8.png) LAB
 =================================================
 
-## Project Name
+## Bearer Authorization
 
-### Author: Student/Group Name
+### Author: Fletcher
+Worked with Jared and got tips from Caity
 
 ### Links and Resources
-* [repo](http://xyz.com)
+* [repo](https://github.com/asdFletcher/18-authorization)
 * [travis](http://xyz.com)
 * [back-end](http://xyz.com) (when applicable)
 * [front-end](http://xyz.com) (when applicable)
