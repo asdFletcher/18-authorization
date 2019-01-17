@@ -52,28 +52,67 @@ Worked with Jared and got tips from Caity
 - anonymous function (server error route)
 
 
-###### `foo(thing) -> string`
-Usage Notes or examples
-
-###### `bar(array) -> array`
-Usage Notes or examples
-
 ### Setup
 #### `.env` requirements
 * `PORT` - Port Number
 * `MONGODB_URI` - URL to the running mongo instance/db
+* `SECRET` - salt for making tokens
 
 #### Running the app
 * `npm start`
-* Endpoint: `/foo/bar/`
-  * Returns a JSON object with abc in it.
-* Endpoint: `/bing/zing/`
-  * Returns a JSON object with xyz in it.
-  
-#### Tests
-* How do you run tests?
-* What assertions were made?
-* What assertions need to be / should be made?
+* Endpoint: `/signup`
+  * Creates a new user in the database
+  * POST request
+* Endpoint: `/signin`
+  * Signs the user in
+  * POST request
+* Endpoint: `/test`
+  * tests the route
+  * POST request
 
-#### UML
-Link to an image of the UML for your application and response to events
+  
+### Testing
+Tests can be found in the `__tests__` directory:
+`__tests__/<file to be tested>.test.js`
+
+Where `<file to be tested>` is the name of the file that the test file applies to.
+
+All testing for this class was done with Jest: 
+* [Jest docs](https://jestjs.io/docs/en/getting-started)
+
+Instructions for replicating the tests for this project are as follows:
+
+* Clone the repo.
+* Create a node runtime environment
+
+    ```JavaScript
+    npm init
+    ```
+    This will create a `package.json` file, a `package-lock.json` file.
+
+* Install Jest
+
+    ```JavaScript
+    npm i jest
+    ```
+
+* Run jest
+
+    ```JavaScript
+    npm jest --verbose --coverage
+    ```
+    It is useful to bind this to the command:
+    ```JavaScript
+    npm test
+    ```
+    To do this, manually edit your package.json to include the following under the "scripts" attribute:
+    ```Javascript
+    "scripts": {
+        "test": "jest --verbose --coverage",
+        "test-watch": "jest --watchAll --verbose --coverage"
+    }
+    ```
+    `test-watch` will re-run tests when the file is saved
+
+---
+
