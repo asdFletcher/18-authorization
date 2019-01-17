@@ -1,15 +1,18 @@
 ![CF](http://i.imgur.com/7v5ASc8.png) LAB
 =================================================
 
-## Project Name
+## Bearer Authorization
 
-### Author: Student/Group Name
+### Author: Fletcher
+Worked with Jared and got tips from Caity
 
 ### Links and Resources
-* [repo](http://xyz.com)
-* [travis](http://xyz.com)
-* [back-end](http://xyz.com) (when applicable)
-* [front-end](http://xyz.com) (when applicable)
+[![Build Status](https://travis-ci.com/asdFletcher/18-authorization.svg?branch=master)](https://travis-ci.com/asdFletcher/18-authorization)
+
+* [repo](https://github.com/asdFletcher/18-authorization)
+* [travis](https://travis-ci.com/asdFletcher/18-authorization)
+* [back-end](https://github.com/asdFletcher/18-authorization)
+* [heroku](https://fl-18-auth.herokuapp.com/)
 
 #### Documentation
 * [swagger](http://xyz.com) (API assignments only)
@@ -18,6 +21,36 @@
 ### Modules
 #### `modulename.js`
 ##### Exported Values and Methods
+
+#### `google.js`
+##### Exported Values and Methods
+- `authorize`
+
+#### `middleware.js`
+##### Exported Values and Methods
+- anonymouse function
+
+#### `router.js`
+##### Exported Values and Methods
+- `authRouter`
+
+#### `users-model.js`
+##### Exported Values and Methods
+- users mongoose model
+
+#### `app.js`
+##### Exported Values and Methods
+- `server` (instance of express)
+- `start` function
+
+#### `404.js`
+##### Exported Values and Methods
+- anonymous function (not found route)
+
+#### `500.js`
+##### Exported Values and Methods
+- anonymous function (server error route)
+
 
 ###### `foo(thing) -> string`
 Usage Notes or examples
