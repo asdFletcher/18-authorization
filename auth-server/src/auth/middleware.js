@@ -5,8 +5,8 @@ const User = require('./users-model.js');
 module.exports = (req, res, next) => {
   // Basic am9objpqb2hubnk=
   // Bearer Token ...
-  console.log(req.headers.authorization);
-  console.log(req.body);
+  // console.log(req.headers.authorization);
+  // console.log(req.body);
   try {
     let [authType, authString] = req.headers.authorization && req.headers.authorization.split(/\s+/);
     
